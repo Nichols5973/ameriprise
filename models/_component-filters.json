@@ -35,7 +35,13 @@
       "text",
       "title",
       "title-block",
-      "video"
+      "video",
+      "hero-cutout",
+      "columns-spotlight",
+      "columns-promo",
+      "cards-icon",
+      "tabs-promo",
+      "columns-advisor"
     ]
   },
   {
@@ -61,6 +67,36 @@
       "title",
       "title-block",
       "video"
+    ]
+  },
+  {
+    "id": "cards-icon",
+    "components": [
+      "cards-icon-item"
+    ]
+  },
+  {
+    "id": "tabs-promo",
+    "components": [
+      "tabs-promo-item"
+    ]
+  },
+  {
+    "id": "columns-spotlight",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "columns-promo",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "columns-advisor",
+    "components": [
+      "column"
     ]
   }
 ]

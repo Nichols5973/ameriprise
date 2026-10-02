@@ -1,0 +1,275 @@
+/*
+ * Columns Advisor - advisor locator band
+ * Values from https://www.ameriprise.com/ #advisor-locator computed styles.
+ * Breakpoints follow the source: form row from 768px, two-column band from 1024px.
+ */
+
+/* full-bleed: let the band escape the section content container */
+main > .section.columns-advisor-container > .columns-advisor-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns-advisor {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-midnight-blue);
+  background-image: url('./facets-midnight-blue.png');
+  background-position: 0 0;
+  background-repeat: repeat;
+  color: var(--color-white);
+  font-family: var(--body-font-family);
+}
+
+.columns-advisor .columns-advisor-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* intro: icon + heading */
+.columns-advisor .columns-advisor-intro {
+  min-width: 0;
+}
+
+.columns-advisor .columns-advisor-icon {
+  display: none;
+  margin: 0;
+  line-height: 0;
+}
+
+.columns-advisor .columns-advisor-icon picture {
+  display: inline-block;
+}
+
+.columns-advisor .columns-advisor-icon img {
+  display: block;
+  box-sizing: content-box;
+  width: 48px;
+  height: 48px;
+  padding-bottom: 8px;
+  object-fit: contain;
+}
+
+.columns-advisor .columns-advisor-intro h3 {
+  margin: 0 0 20px;
+  padding-right: 8px;
+  color: var(--color-white);
+  font-family: var(--serif-font-family);
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* search cell */
+.columns-advisor .columns-advisor-search {
+  min-width: 0;
+}
+
+.columns-advisor .columns-advisor-card {
+  padding: 20px;
+  border-radius: 25px;
+  background-color: var(--color-white);
+  color: var(--color-neutral);
+}
+
+.columns-advisor .columns-advisor-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.columns-advisor .columns-advisor-label {
+  display: block;
+  margin: 0 0 16px;
+  padding: 4px 0 8px;
+  color: var(--color-neutral);
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.columns-advisor .columns-advisor-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.columns-advisor .columns-advisor-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  min-width: 0;
+}
+
+.columns-advisor .columns-advisor-field input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 10px 15px;
+  border: 1px solid var(--color-neutral-75);
+  border-radius: 4px;
+  background-color: var(--color-white);
+  color: var(--color-neutral);
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.columns-advisor .columns-advisor-field input::placeholder {
+  color: rgb(47 48 51 / 75%);
+  font-size: 16px;
+  opacity: 1;
+}
+
+.columns-advisor .columns-advisor-locate {
+  margin: 8px 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-action-blue);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: normal;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.columns-advisor .columns-advisor-locate:hover {
+  color: var(--link-hover-color);
+}
+
+.columns-advisor .columns-advisor-locate:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}
+
+.columns-advisor .columns-advisor-error {
+  margin: 0 0 8px;
+  color: var(--color-berry);
+  font-size: var(--body-size-s);
+  line-height: 20px;
+}
+
+.columns-advisor .columns-advisor-error:empty {
+  display: none;
+}
+
+.columns-advisor button.button.columns-advisor-submit {
+  flex: 0 0 auto;
+  width: auto;
+  min-height: 42px;
+  margin: 20px 0;
+}
+
+/* appointment line inside the card */
+.columns-advisor .columns-advisor-links {
+  margin: 8px 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-stone-dark);
+}
+
+.columns-advisor .columns-advisor-links p {
+  margin: 0;
+  color: var(--color-neutral);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.columns-advisor .columns-advisor-links a:any-link {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.columns-advisor .columns-advisor-links a:hover {
+  color: var(--link-hover-color);
+}
+
+.columns-advisor .columns-advisor-label-source {
+  display: none;
+}
+
+/* disclosure below the card */
+.columns-advisor .columns-advisor-disclosure {
+  margin: 0;
+  padding-top: 8px;
+  color: var(--color-white);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.columns-advisor .columns-advisor-disclosure a:any-link,
+.columns-advisor .columns-advisor-disclosure a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+@media (width >= 768px) {
+  .columns-advisor .columns-advisor-intro h3 {
+    font-size: var(--heading-size-xl);
+  }
+
+  .columns-advisor .columns-advisor-form {
+    flex-direction: row;
+  }
+
+  .columns-advisor .columns-advisor-label {
+    flex: 0 1 50%;
+    min-width: 0;
+    margin: 0;
+    padding: 4px 20px 8px 0;
+  }
+
+  .columns-advisor .columns-advisor-controls {
+    flex: 0 1 auto;
+    flex-direction: row;
+    min-width: 0;
+  }
+
+  .columns-advisor .columns-advisor-field {
+    flex: 0 1 auto;
+  }
+
+  .columns-advisor .columns-advisor-field input {
+    width: auto;
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .columns-advisor button.button.columns-advisor-submit {
+    margin: 0 0 0 16px;
+  }
+}
+
+@media (width >= 1024px) {
+  /* 5/12 heading + 1/12 gutter + 1/2 search; disclosure sits in row 2 under the card */
+  .columns-advisor .columns-advisor-row {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr);
+    grid-template-rows: auto auto;
+  }
+
+  .columns-advisor .columns-advisor-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .columns-advisor .columns-advisor-icon {
+    display: block;
+  }
+
+  .columns-advisor .columns-advisor-search {
+    display: grid;
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    grid-template-rows: subgrid;
+  }
+}

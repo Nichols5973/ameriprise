@@ -1,0 +1,49 @@
+/* Ameriprise brand tokens — extracted from https://www.ameriprise.com/ */
+:root {
+  /* fonts — "Ameriprise Sans" is Roboto (self-hosted in /fonts);
+     "Ameriprise Serif" is licensed Publico Headline, so a system serif stands in */
+  --body-font-family: roboto, roboto-fallback, arial, sans-serif;
+  --heading-font-family: roboto, roboto-fallback, arial, sans-serif;
+  --serif-font-family: 'Publico Headline', georgia, 'Times New Roman', serif;
+
+  /* palette */
+  --color-midnight-blue: #00284a;
+  --color-brand-blue: #003f6b;
+  --color-action-blue: #046cb8;
+  --color-action-blue-10: #e6f0f8;
+  --color-neutral: #1f2226;
+  --color-neutral-75: rgb(31 34 38 / 75%);
+  --color-neutral-15: rgb(31 34 38 / 15%);
+  --color-stone: #f3f2f1;
+  --color-stone-dark: #d9d8d7;
+  --color-purple-light: #edeaf0;
+  --color-berry: #972364;
+  --color-mint: #44a29a;
+  --color-dark-mint: #007886;
+  --color-white: #fff;
+
+  /* semantic */
+  --background-color: var(--color-white);
+  --text-color: var(--color-neutral);
+  --link-color: var(--color-action-blue);
+  --link-hover-color: var(--color-brand-blue);
+  --button-hover-color: var(--color-midnight-blue);
+
+  /* type scale (desktop) */
+  --heading-size-xxl: 41px;
+  --heading-size-xl: 26px;
+  --heading-size-l: 26px;
+  --heading-size-m: 20px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+  --body-size: 16px;
+  --body-size-s: 14px;
+  --body-size-xs: 12px;
+
+  /* layout */
+  --content-max-width: 1240px;
+  --section-padding: 48px;
+  --radius-pill: 24px;
+  --radius-panel: 8px;
+  --nav-height: 124px;
+}

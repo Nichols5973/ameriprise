@@ -1,0 +1,26 @@
+{
+  "variantName": "tabs-promo",
+  "baseBlock": "tabs",
+  "canonicalModel": "collection",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "medium",
+    "purpose": "resource tabs",
+    "imagePattern": "split panel image/video",
+    "structure": "tab label + heading + paragraph + media + footer link"
+  },
+  "contentPattern": {
+    "structure": "tab label | heading + paragraph | image and/or optional video link (Brightcove/YouTube/Vimeo/mp4) | footer line",
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.ameriprise.com/", "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-01T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": ["tabs-promo"]
+}

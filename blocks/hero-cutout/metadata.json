@@ -1,0 +1,26 @@
+{
+  "variantName": "hero-cutout",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark-blue",
+    "density": "spacious",
+    "purpose": "page-intro hero",
+    "imagePattern": "cutout portrait over facet bg",
+    "structure": "h1 + paragraph + outlined CTA + image"
+  },
+  "contentPattern": {
+    "structure": "h1 + paragraph + outlined CTA + image",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.ameriprise.com/", "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-01T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": ["hero-cutout"]
+}

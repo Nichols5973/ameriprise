@@ -1,0 +1,195 @@
+/*
+ * Columns Promo
+ * Rounded split promo panel (values from source computed styles, ameriprise.com).
+ * Panel colour: block option `stone` (default) or `purple-light`.
+ * When no option is authored, JS applies `purple-light` to image-left panels and
+ * `stone` to image-right panels (matches the source home page).
+ */
+.columns-promo {
+  --columns-promo-bg: var(--color-stone);
+}
+
+.columns-promo.stone {
+  --columns-promo-bg: var(--color-stone);
+}
+
+.columns-promo.purple-light {
+  --columns-promo-bg: var(--color-purple-light);
+}
+
+/* panel (one per row) — mobile: image stacked on top of content */
+.columns-promo .columns-promo-row {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-pill);
+  background-color: var(--columns-promo-bg);
+  overflow: hidden;
+}
+
+.columns-promo .columns-promo-row + .columns-promo-row {
+  margin-top: 32px;
+}
+
+/* media cell */
+.columns-promo .columns-promo-media {
+  order: -1;
+  min-width: 0;
+}
+
+.columns-promo .columns-promo-media p {
+  margin: 0;
+}
+
+.columns-promo .columns-promo-media picture {
+  display: block;
+}
+
+.columns-promo .columns-promo-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* content cell */
+.columns-promo .columns-promo-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 32px 24px 0;
+}
+
+/* eyebrow */
+.columns-promo .columns-promo-content .columns-promo-eyebrow {
+  margin: 0;
+  padding: 20px 0 8px;
+  color: var(--color-neutral);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18.2px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+/* heading */
+.columns-promo .columns-promo-content :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  padding: 0 0 8px;
+  color: var(--color-neutral);
+  font-family: var(--body-font-family);
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 29.9px;
+  text-align: left;
+}
+
+/* statement panel (heading only, e.g. award callout): bold midnight-blue heading */
+.columns-promo .columns-promo-statement .columns-promo-content :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--color-midnight-blue);
+  font-weight: 700;
+}
+
+/* body copy */
+.columns-promo .columns-promo-content p:not(.columns-promo-eyebrow, .button-container) {
+  margin: 0 0 32px;
+  color: var(--color-neutral);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.columns-promo .columns-promo-content :is(h1, h2, h3, h4, h5, h6) sup {
+  font-size: 17px;
+}
+
+.columns-promo .columns-promo-content p sup {
+  font-size: 12px;
+}
+
+/* CTA: filled primary pill */
+.columns-promo .columns-promo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
+}
+
+.columns-promo .columns-promo-actions .button-container {
+  margin: 0;
+}
+
+main .columns-promo a.button:any-link {
+  min-height: 42px;
+  margin: 0 0 32px;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-action-blue);
+  color: var(--color-white);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+main .columns-promo a.button:hover,
+main .columns-promo a.button:focus-visible {
+  border-color: transparent;
+  background-color: var(--color-midnight-blue);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+/* secondary (italic-authored) CTA keeps the outlined pill */
+main .columns-promo a.button.secondary:any-link {
+  border-color: var(--color-action-blue);
+  background-color: transparent;
+  color: var(--color-action-blue);
+}
+
+main .columns-promo a.button.secondary:hover,
+main .columns-promo a.button.secondary:focus-visible {
+  border-color: var(--color-brand-blue);
+  background-color: var(--color-action-blue-10);
+  color: var(--color-brand-blue);
+}
+
+@media (width >= 768px) {
+  .columns-promo .columns-promo-content :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 26px;
+    line-height: 33.8px;
+  }
+}
+
+/* desktop: 50 / 50 split, image side follows authored cell order */
+@media (width >= 900px) {
+  .columns-promo .columns-promo-row {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .columns-promo .columns-promo-media,
+  .columns-promo .columns-promo-content {
+    flex: 1 1 50%;
+    min-height: 350px;
+  }
+
+  .columns-promo .columns-promo-media {
+    order: 0;
+  }
+
+  /* image stays in flow (its natural height can grow the panel, as on the source)
+     and fills the stretched half when the text side is taller */
+  .columns-promo .columns-promo-media > p,
+  .columns-promo .columns-promo-media picture,
+  .columns-promo .columns-promo-media img {
+    height: 100%;
+  }
+
+  .columns-promo .columns-promo-no-media .columns-promo-content {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "xwalk",
+  "sites": {
+    "ameriprise": {
+      "previewOrg": "Nichols5973",
+      "previewSite": "ameriprise",
+      "contentHostUrl": "author-p87302-e1492027.adobeaemcloud.com",
+      "aemSitePath": "/content/ameriprise",
+      "aemAssetsFolderPath": "/content/dam/ameriprise",
+      "aemSiteName": "ameriprise",
+      "aemSiteTitle": "ameriprise",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

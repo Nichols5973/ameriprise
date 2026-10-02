@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-promo",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light (stone / tinted panel)",
+    "density": "medium",
+    "purpose": "split promo panel",
+    "imagePattern": "half-width image, rounded",
+    "structure": "eyebrow? + heading + paragraph? + CTA? | image"
+  },
+  "contentPattern": {
+    "structure": "eyebrow? + heading + paragraph? + CTA? | image (image side follows cell order)",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "usage": {
+    "pagesUsing": [
+      {
+        "url": "https://www.ameriprise.com/",
+        "screenshot": "migration-work/screenshot.png"
+      }
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-01T00:00:00.000Z"
+  },
+  "options": [
+    {
+      "name": "stone",
+      "description": "Stone panel background (default)"
+    },
+    {
+      "name": "purple-light",
+      "description": "Light purple panel background"
+    }
+  ],
+  "memberVariantIds": [
+    "columns-promo"
+  ]
+}

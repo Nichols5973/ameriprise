@@ -1,0 +1,136 @@
+/*
+ * Columns Spotlight
+ * Values extracted from https://www.ameriprise.com/ (.Spotlight-component .Spotlight > .Grid)
+ * Source breakpoints: < 768 stacked, 768-1024 two columns (tablet padding), > 1024 desktop.
+ */
+
+.columns-spotlight {
+  color: rgb(0 0 0);
+}
+
+/* rows: stacked on mobile */
+.columns-spotlight .columns-spotlight-row {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+/* cells */
+.columns-spotlight .columns-spotlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* mobile: horizontal divider below first spotlight */
+.columns-spotlight .columns-spotlight-item:not(:last-child) {
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--color-stone-dark);
+}
+
+.columns-spotlight .columns-spotlight-item + .columns-spotlight-item {
+  padding-top: 32px;
+}
+
+.columns-spotlight .columns-spotlight-empty {
+  display: none;
+}
+
+/* icon: 64x64 line icon, 24px above heading (20px wrapper padding + inline svg line gap) */
+.columns-spotlight .columns-spotlight-icon {
+  margin: 0 0 24px;
+}
+
+.columns-spotlight .columns-spotlight-icon p {
+  margin: 0;
+}
+
+.columns-spotlight .columns-spotlight-icon picture,
+.columns-spotlight .columns-spotlight-icon img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+/* heading */
+.columns-spotlight h3 {
+  margin: 0 0 8px;
+  color: rgb(0 0 0);
+  font-family: var(--heading-font-family);
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* body copy */
+.columns-spotlight .columns-spotlight-item > p {
+  margin: 0 0 32px;
+  color: rgb(0 0 0);
+  font-family: var(--body-font-family);
+  font-size: var(--body-size);
+  line-height: 24px;
+}
+
+/* CTA (outlined action-blue pill, matches global a.button default) */
+.columns-spotlight .columns-spotlight-actions {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.columns-spotlight .columns-spotlight-actions .button-container {
+  margin: 0;
+}
+
+main .columns-spotlight a.button:any-link {
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 2px solid var(--color-action-blue);
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  color: var(--color-action-blue);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+/* tablet: two equal columns with vertical divider */
+@media (width >= 768px) {
+  .columns-spotlight .columns-spotlight-row {
+    flex-flow: row wrap;
+  }
+
+  .columns-spotlight .columns-spotlight-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .columns-spotlight .columns-spotlight-item:not(:last-child) {
+    padding: 32px 48px 32px 0;
+    border-bottom: 0;
+    border-right: 1px solid var(--color-stone-dark);
+  }
+
+  .columns-spotlight .columns-spotlight-item + .columns-spotlight-item {
+    padding: 32px 0 0 48px;
+  }
+
+  .columns-spotlight h3 {
+    font-size: 26px;
+  }
+}
+
+/* desktop: source drops the cell vertical padding above 1024px */
+@media (width > 1024px) {
+  .columns-spotlight .columns-spotlight-item:not(:last-child) {
+    padding: 0 48px 0 0;
+  }
+
+  .columns-spotlight .columns-spotlight-item + .columns-spotlight-item {
+    padding: 0 0 0 48px;
+  }
+}

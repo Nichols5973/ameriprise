@@ -1,0 +1,73 @@
+{
+  "definitions": [
+    {
+      "title": "Columns Promo",
+      "id": "columns-promo",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/columns/v1/columns",
+            "template": {
+              "name": "Columns Promo",
+              "model": "columns-promo",
+              "filter": "columns-promo",
+              "columns": "2",
+              "rows": "1"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "columns-promo",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes",
+          "value": "",
+          "label": "Panel color",
+          "description": "Background color of the promo panel. When unset, image-left panels use light purple and image-right panels use stone.",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Auto (by image position)",
+              "value": ""
+            },
+            {
+              "name": "Stone",
+              "value": "stone"
+            },
+            {
+              "name": "Light purple",
+              "value": "purple-light"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "columns",
+          "value": "",
+          "label": "Columns"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "rows",
+          "value": "",
+          "label": "Rows"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "columns-promo",
+      "components": [
+        "column"
+      ]
+    }
+  ]
+}

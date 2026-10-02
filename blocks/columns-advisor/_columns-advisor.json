@@ -1,0 +1,51 @@
+{
+  "definitions": [
+    {
+      "title": "Columns Advisor",
+      "id": "columns-advisor",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/columns/v1/columns",
+            "template": {
+              "name": "Columns Advisor",
+              "model": "columns-advisor",
+              "filter": "columns-advisor",
+              "columns": "2",
+              "rows": "1"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "columns-advisor",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "columns",
+          "value": "",
+          "label": "Columns"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "rows",
+          "value": "",
+          "label": "Rows"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "columns-advisor",
+      "components": [
+        "column"
+      ]
+    }
+  ]
+}

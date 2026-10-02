@@ -1,0 +1,26 @@
+{
+  "variantName": "columns-advisor",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark (midnight blue)",
+    "density": "medium",
+    "purpose": "advisor locator / ZIP search",
+    "imagePattern": "facet background + icon",
+    "structure": "icon + heading | search card + links + disclosure"
+  },
+  "contentPattern": {
+    "structure": "icon + heading | search label + appointment line + disclosure (ZIP input, Search and Find my location rendered by JS)",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.ameriprise.com/", "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-01T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": ["columns-advisor"]
+}

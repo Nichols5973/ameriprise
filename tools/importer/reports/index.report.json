@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.ameriprise.com/",
+  "path": "index",
+  "timestamp": "2026-10-01T21:20:53.298Z",
+  "title": "Financial Planning Advice and Financial Advisors | Ameriprise Financial",
+  "template": "home",
+  "blocks": [
+    "hero-cutout",
+    "columns-spotlight",
+    "columns-promo",
+    "columns-promo",
+    "cards-icon",
+    "tabs-promo",
+    "columns-advisor"
+  ]
+}

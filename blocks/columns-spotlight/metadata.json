@@ -1,0 +1,26 @@
+{
+  "variantName": "columns-spotlight",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "medium",
+    "purpose": "two feature spotlights",
+    "imagePattern": "line icons",
+    "structure": "icon + heading + paragraph + CTA (x2, vertical divider)"
+  },
+  "contentPattern": {
+    "structure": "icon + heading + paragraph + CTA (x2, vertical divider)",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.ameriprise.com/", "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-01T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": ["columns-spotlight"]
+}

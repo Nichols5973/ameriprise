@@ -1,0 +1,26 @@
+{
+  "variantName": "cards-icon",
+  "baseBlock": "cards",
+  "canonicalModel": "collection",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "credential highlights",
+    "imagePattern": "line icons",
+    "structure": "icon + bold label (x3)"
+  },
+  "contentPattern": {
+    "structure": "icon + bold label (x3)",
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.ameriprise.com/", "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-01T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": ["cards-icon"]
+}

@@ -1,0 +1,112 @@
+{
+  "definitions": [
+    {
+      "title": "Tabs Promo",
+      "id": "tabs-promo",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Tabs Promo",
+              "filter": "tabs-promo"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Tabs Promo Item",
+      "id": "tabs-promo-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Tab",
+              "model": "tabs-promo-item",
+              "title": "Tab Name",
+              "content_headingType": "h3"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "tabs-promo-item",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "value": "",
+          "label": "Tab Label"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "content_heading",
+          "value": "",
+          "label": "Heading"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "content_headingType",
+          "value": "h3",
+          "label": "Heading Type",
+          "options": [
+            { "name": "H2", "value": "h2" },
+            { "name": "H3", "value": "h3" },
+            { "name": "H4", "value": "h4" }
+          ]
+        },
+        {
+          "component": "richtext",
+          "name": "content_richtext",
+          "value": "",
+          "label": "Text",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "media_image",
+          "label": "Image / Video Poster",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "media_imageAlt",
+          "label": "Image Alt Text",
+          "value": ""
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "media_video",
+          "label": "Video Link (optional)",
+          "description": "Brightcove player URL (players.brightcove.net/...), YouTube, Vimeo or .mp4. Plays when the poster image is clicked."
+        },
+        {
+          "component": "richtext",
+          "name": "footer",
+          "value": "",
+          "label": "Footer Text (optional)",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "tabs-promo",
+      "components": [
+        "tabs-promo-item"
+      ]
+    }
+  ]
+}

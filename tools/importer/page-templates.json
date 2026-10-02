@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.ameriprise.com/"
+      ],
+      "representativeUrl": "https://www.ameriprise.com/",
+      "description": "Ameriprise homepage: hero, spotlights, promo panels, ratings highlights, resource tabs, advisor locator and disclosures",
+      "urlPattern": "/",
+      "blocks": [
+        {
+          "name": "hero-cutout",
+          "instances": [
+            "section.ComplexHero"
+          ]
+        },
+        {
+          "name": "columns-spotlight",
+          "instances": [
+            ".Spotlight-component .Spotlight > .Grid"
+          ]
+        },
+        {
+          "name": "columns-promo",
+          "instances": [
+            ".component-wrapper > .component-loaded > div > section.Promo-redesign"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            "section.Categories .Categories-blocks"
+          ]
+        },
+        {
+          "name": "tabs-promo",
+          "instances": [
+            ".HorizontalTabs"
+          ]
+        },
+        {
+          "name": "columns-advisor",
+          "instances": [
+            "#advisor-locator"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc2",
+          "name": "hero",
+          "selector": [
+            ".ComplexHero-container"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-cutout"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc4",
+          "name": "spotlights",
+          "selector": [
+            ".Spotlight-component"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-spotlight"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc5",
+          "name": "time-award-promo",
+          "selector": [
+            ".component-wrapper > .component-loaded > div > section.Promo-redesign:has(.u-bgColorStone)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc6",
+          "name": "top-ratings",
+          "selector": [
+            "section.Categories"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon"
+          ],
+          "defaultContent": [
+            "section.Categories .Content.u-paddingTop48"
+          ]
+        },
+        {
+          "id": "rc7",
+          "name": "retirement-quiz-promo",
+          "selector": [
+            ".component-wrapper > .component-loaded > div > section.Promo-redesign:has(.u-bgColorPurpleLight10)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc8",
+          "name": "insights-tabs",
+          "selector": [
+            ".component-wrapper:has(.HorizontalTabs)"
+          ],
+          "style": null,
+          "blocks": [
+            "tabs-promo"
+          ],
+          "defaultContent": [
+            ".component-wrapper:has(.HorizontalTabs) > section > header"
+          ]
+        },
+        {
+          "id": "rc9",
+          "name": "advisor-locator",
+          "selector": [
+            "#advisor-locator"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-advisor"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc11",
+          "name": "disclosures",
+          "selector": [
+            "section.SimpleContent"
+          ],
+          "style": "disclaimer",
+          "blocks": [],
+          "defaultContent": [
+            "section.SimpleContent .Content.content-block"
+          ]
+        }
+      ]
+    }
+  ]
+}
