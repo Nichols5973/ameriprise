@@ -215,6 +215,36 @@
     "id": "columns",
     "fields": [
       {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "description": "Columns layout variant. Rendered as a block class (e.g. \"columns promo\").",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Spotlight (icon + text columns)",
+            "value": "spotlight"
+          },
+          {
+            "name": "Promo (rounded split panel)",
+            "value": "promo"
+          },
+          {
+            "name": "Advisor locator (dark band)",
+            "value": "advisor"
+          },
+          {
+            "name": "Promo panel: stone",
+            "value": "stone"
+          },
+          {
+            "name": "Promo panel: light purple",
+            "value": "purple-light"
+          }
+        ]
+      },
+      {
         "component": "text",
         "valueType": "number",
         "name": "columns",
@@ -428,6 +458,36 @@
     "id": "columns-advisor",
     "fields": [
       {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "advisor",
+        "label": "Style",
+        "description": "Columns layout variant. Rendered as a block class (e.g. \"columns promo\").",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Spotlight (icon + text columns)",
+            "value": "spotlight"
+          },
+          {
+            "name": "Promo (rounded split panel)",
+            "value": "promo"
+          },
+          {
+            "name": "Advisor locator (dark band)",
+            "value": "advisor"
+          },
+          {
+            "name": "Promo panel: stone",
+            "value": "stone"
+          },
+          {
+            "name": "Promo panel: light purple",
+            "value": "purple-light"
+          }
+        ]
+      },
+      {
         "component": "text",
         "valueType": "number",
         "name": "columns",
@@ -447,23 +507,31 @@
     "id": "columns-promo",
     "fields": [
       {
-        "component": "select",
+        "component": "multiselect",
         "name": "classes",
-        "value": "",
-        "label": "Panel color",
-        "description": "Background color of the promo panel. When unset, image-left panels use light purple and image-right panels use stone.",
+        "value": "promo",
+        "label": "Style",
+        "description": "Columns layout variant. Rendered as a block class (e.g. \"columns promo\").",
         "valueType": "string",
         "options": [
           {
-            "name": "Auto (by image position)",
-            "value": ""
+            "name": "Spotlight (icon + text columns)",
+            "value": "spotlight"
           },
           {
-            "name": "Stone",
+            "name": "Promo (rounded split panel)",
+            "value": "promo"
+          },
+          {
+            "name": "Advisor locator (dark band)",
+            "value": "advisor"
+          },
+          {
+            "name": "Promo panel: stone",
             "value": "stone"
           },
           {
-            "name": "Light purple",
+            "name": "Promo panel: light purple",
             "value": "purple-light"
           }
         ]
@@ -488,6 +556,36 @@
     "id": "columns-spotlight",
     "fields": [
       {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "spotlight",
+        "label": "Style",
+        "description": "Columns layout variant. Rendered as a block class (e.g. \"columns promo\").",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Spotlight (icon + text columns)",
+            "value": "spotlight"
+          },
+          {
+            "name": "Promo (rounded split panel)",
+            "value": "promo"
+          },
+          {
+            "name": "Advisor locator (dark band)",
+            "value": "advisor"
+          },
+          {
+            "name": "Promo panel: stone",
+            "value": "stone"
+          },
+          {
+            "name": "Promo panel: light purple",
+            "value": "purple-light"
+          }
+        ]
+      },
+      {
         "component": "text",
         "valueType": "number",
         "name": "columns",
@@ -506,6 +604,36 @@
   {
     "id": "columns",
     "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "description": "Columns layout variant. Rendered as a block class (e.g. \"columns promo\").",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Spotlight (icon + text columns)",
+            "value": "spotlight"
+          },
+          {
+            "name": "Promo (rounded split panel)",
+            "value": "promo"
+          },
+          {
+            "name": "Advisor locator (dark band)",
+            "value": "advisor"
+          },
+          {
+            "name": "Promo panel: stone",
+            "value": "stone"
+          },
+          {
+            "name": "Promo panel: light purple",
+            "value": "purple-light"
+          }
+        ]
+      },
       {
         "component": "text",
         "valueType": "number",

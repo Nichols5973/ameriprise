@@ -54,6 +54,6 @@ export default function parse(element, { document }) {
 
   const cells = [imageLeft ? [imageCell, textCell] : [textCell, imageCell]];
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'columns-promo', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: 'Columns (promo)', cells });
   element.replaceWith(block);
 }

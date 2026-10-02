@@ -1,3 +1,5 @@
+import { loadCSS } from '../../scripts/aem.js';
+
 function embedYoutube(url, autoplay, background) {
   const usp = new URLSearchParams(url.search);
   let suffix = '';
@@ -67,46 +69,67 @@ const loadVideoEmbed = (block, link, autoplay, background) => {
 };
 
 function isVideoLink(link) {
-    try {
-        if (!link) return false;
-        // Check for regular video files
-        const regularVideoCheck = link.match(/\.(mp4|mov|wmv|avi|mkv|webm)$/i) !== null;
+  try {
+    if (!link) return false;
+    // Check for regular video files
+    const regularVideoCheck = link.match(/\.(mp4|mov|wmv|avi|mkv|webm)$/i) !== null;
 
-        // Check for YouTube URLs
-        const youtubeCheck = (
-          link.includes('youtube.com') ||
-          link.includes('youtu.be') ||
-          link.includes('youtube-nocookie.com')
-        );
+    // Check for YouTube URLs
+    const youtubeCheck = (
+      link.includes('youtube.com')
+          || link.includes('youtu.be')
+          || link.includes('youtube-nocookie.com')
+    );
 
-        // Combined check
-        const isVideo = regularVideoCheck || youtubeCheck;
+    // Combined check
+    const isVideo = regularVideoCheck || youtubeCheck;
 
-        // Log the type of video for debugging
-        if (isVideo) {
-            console.log('Video type:', {
-                isRegularVideo: regularVideoCheck,
-                isYouTube: youtubeCheck,
-                url: link
-            });
-        }
-
-        return isVideo;
-
-    } catch (error) {
-        console.error('Error checking video link:', error);
-        return false;
+    // Log the type of video for debugging
+    if (isVideo) {
+      console.log('Video type:', {
+        isRegularVideo: regularVideoCheck,
+        isYouTube: youtubeCheck,
+        url: link,
+      });
     }
+
+    return isVideo;
+  } catch (error) {
+    console.error('Error checking video link:', error);
+    return false;
+  }
 }
 
-export default function decorate(block) {
+/*
+ * Variants authored as a Columns style option (AEM renders `columns promo`) are
+ * delegated to their own block implementation (blocks/columns-<variant>/).
+ */
+const VARIANTS = ['spotlight', 'promo', 'advisor'];
+
+async function decorateVariant(block, variant) {
+  const name = `columns-${variant}`;
+  block.classList.replace('columns', name);
+  block.classList.remove(variant);
+  block.closest('.columns-wrapper')?.classList.replace('columns-wrapper', `${name}-wrapper`);
+  block.closest('.section')?.classList.add(`${name}-container`);
+  const base = `${window.hlx.codeBasePath}/blocks/${name}/${name}`;
+  const [, mod] = await Promise.all([loadCSS(`${base}.css`), import(`${base}.js`)]);
+  await mod.default(block);
+}
+
+export default async function decorate(block) {
+  const variant = VARIANTS.find((v) => block.classList.contains(v));
+  if (variant) {
+    await decorateVariant(block, variant);
+    return;
+  }
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
 
   // setup image columns
   [...block.children].forEach((row) => {
     row.classList.add('columns-row');
-    //const firstChild = row.querySelector(':scope > div:first-child');
+    // const firstChild = row.querySelector(':scope > div:first-child');
     [...row.children].forEach((col) => {
       const pic = col.querySelector('picture');
       if (pic) {
@@ -116,32 +139,32 @@ export default function decorate(block) {
           picWrapper.classList.add('columns-img-col');
         }
       }
-     // const videoBlock = col.querySelector('div[data-aue-model="video"]');
+      // const videoBlock = col.querySelector('div[data-aue-model="video"]');
 
       const linkavl = col.querySelector('a')?.href;
       const videoBlock = linkavl ? isVideoLink(linkavl) : false;
-      
+
       if (videoBlock) {
         const videoWrapper = col.closest('div');
         if (videoWrapper) {
           // Add video specific classes
           videoWrapper.classList.add('columns-video-col');
-          
+
           // Get video link from button container
           const videoLink = col.querySelector('a');
           if (videoLink) {
             const videoUrl = videoLink.getAttribute('href');
-            
+
             // Create video container
             const videoContainer = document.createElement('div');
             videoContainer.className = 'columns-video-container';
-            
+
             // Load video with appropriate embed
             loadVideoEmbed(
-              videoContainer, 
+              videoContainer,
               videoUrl,
               col.dataset.autoplay === 'true',
-              col.dataset.background === 'true'
+              col.dataset.background === 'true',
             );
 
             // Replace button container with video container

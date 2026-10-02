@@ -119,6 +119,6 @@ export default function parse(element, { document }) {
   const row = items.map((item) => buildColumn(document, item));
   const cells = [row];
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'columns-spotlight', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: 'Columns (spotlight)', cells });
   element.replaceWith(block);
 }

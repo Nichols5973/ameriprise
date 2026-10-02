@@ -38,6 +38,23 @@ function isCurrentPage(link) {
   }
 }
 
+/**
+ * Normalizes authoring differences in the fragment: AEM wraps list-item content in
+ * <p> and splits a link holding an image + text into two links with the same href.
+ */
+function normalizeFragment(container) {
+  container.querySelectorAll('li > p').forEach((p) => p.replaceWith(...p.childNodes));
+  container.querySelectorAll('li').forEach((li) => {
+    const links = [...li.querySelectorAll(':scope > a')];
+    links.slice(1).forEach((a) => {
+      const first = links[0];
+      if (a.getAttribute('href') !== first.getAttribute('href')) return;
+      first.append(...a.childNodes);
+      a.remove();
+    });
+  });
+}
+
 function closeAll(scope, except) {
   scope.querySelectorAll('[aria-expanded="true"]').forEach((el) => {
     if (el !== except && !el.contains(except)) el.setAttribute('aria-expanded', 'false');
@@ -110,7 +127,15 @@ function decorateMenuLevel(ul, level) {
 function decorateBrand(section) {
   section.className = 'nav-brand';
   const link = section.querySelector('a');
-  if (link) link.setAttribute('aria-label', section.querySelector('img')?.alt || 'Home');
+  const picture = section.querySelector('picture') || section.querySelector('img');
+  if (!link) return;
+  // logo is authored as an image next to the home link; put it inside the link
+  if (picture && !link.contains(picture)) {
+    const holder = picture.closest('p');
+    link.replaceChildren(picture);
+    if (holder && holder !== link.closest('p') && !holder.textContent.trim() && !holder.querySelector('img')) holder.remove();
+  }
+  link.setAttribute('aria-label', section.querySelector('img')?.alt || link.textContent.trim() || 'Home');
 }
 
 function decorateTools(section) {
@@ -242,6 +267,7 @@ function buildHamburger(nav) {
 export default async function decorate(block) {
   const fragment = await fetchNavFragment();
   if (!fragment) return;
+  normalizeFragment(fragment);
   block.textContent = '';
 
   const [brand, tools, sections, search] = [...fragment.children];

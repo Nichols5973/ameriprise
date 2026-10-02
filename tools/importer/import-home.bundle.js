@@ -195,7 +195,7 @@ var CustomImportScript = (() => {
     }
     const row = items.map((item) => buildColumn(document2, item));
     const cells = [row];
-    const block = WebImporter.Blocks.createBlock(document2, { name: "columns-spotlight", cells });
+    const block = WebImporter.Blocks.createBlock(document2, { name: "Columns (spotlight)", cells });
     element.replaceWith(block);
   }
 
@@ -234,7 +234,7 @@ var CustomImportScript = (() => {
       imageLeft = cls.contains("u-flexOrderFirst") || cls.contains("Promo-borderRadiusLeft");
     }
     const cells = [imageLeft ? [imageCell, textCell] : [textCell, imageCell]];
-    const block = WebImporter.Blocks.createBlock(document2, { name: "columns-promo", cells });
+    const block = WebImporter.Blocks.createBlock(document2, { name: "Columns (promo)", cells });
     element.replaceWith(block);
   }
 
@@ -528,6 +528,23 @@ var CustomImportScript = (() => {
     });
   }
 
+  // tools/importer/local-images.js
+  var local_images_default = {
+    "https://www.ameriprise.com/binaries/content/gallery/ampcom/heros/redesign-heroes/gettyimages-513478544_cmyk_flipped.png": "images/gettyimages-513478544-cmyk-flipped-38f24f72.png",
+    "data:d06fdb47": "images/icon-a0219bc1.svg",
+    "data:51cd92fe": "images/icon-e2d80e4d.svg",
+    "https://www.ameriprise.com/binaries/content/gallery/ampcom/most-iconic.jpg": "images/most-iconic-4ceae5aa.jpg",
+    "data:221d55e8": "images/icon-400bb5de.svg",
+    "data:6297d81e": "images/icon-e31869b7.svg",
+    "data:55a426e2": "images/icon-c3b6f8d1.svg",
+    "https://www.ameriprise.com/binaries/content/gallery/ampcom/retirement-profiles_gettyimages-1168316582_resize.jpg": "images/retirement-profiles-gettyimages-1168316582-resize-32fa8a0e.jpg",
+    "https://cf-images.us-east-1.prod.boltdns.net/v1/static/1625296066001/95313529-11c4-4fa2-a6c5-6fd77040878b/550fde03-79f1-4317-8233-f97c8df3d2da/1280x720/match/image.jpg": "images/image-0fc184d0.jpg",
+    "https://www.ameriprise.com/binaries/content/gallery/ampcom/mobile-and-tablet-secure-site-view_ampcom-hp.png": "images/mobile-and-tablet-secure-site-view-ampcom-hp-ab19789d.png",
+    "https://www.ameriprise.com/binaries/content/gallery/ampcom/gettyimages-691047203_homepage-security.jpg": "images/gettyimages-691047203-homepage-security-5ee59736.jpg",
+    "data:3de4f681": "images/icon-468c86c5.svg",
+    "https://www.ameriprise.com/binaries/content/gallery/ampcom/ameriprise-social-image.png/ameriprise-social-image.png/brxp%3Alarge": "images/ameriprise-social-image-44d5e9d4.png"
+  };
+
   // tools/importer/parsers/columns-advisor.js
   function resolveSpriteSymbol3(document2, href) {
     const [spritePath, id] = href.split("#");
@@ -637,7 +654,7 @@ var CustomImportScript = (() => {
       return;
     }
     const cells = [[introCell.length ? introCell : "", searchCell.length ? searchCell : ""]];
-    const block = WebImporter.Blocks.createBlock(document2, { name: "columns-advisor", cells });
+    const block = WebImporter.Blocks.createBlock(document2, { name: "Columns (advisor)", cells });
     element.replaceWith(block);
   }
 
@@ -765,6 +782,20 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/import-home.js
+  function imageKey(src) {
+    if (!src.startsWith("data:")) return src;
+    let h = 2166136261;
+    for (let i = 0; i < src.length; i += 1) {
+      h = Math.imul(h ^ src.charCodeAt(i), 16777619) >>> 0;
+    }
+    return `data:${h.toString(16).padStart(8, "0")}`;
+  }
+  function localizeImages(main) {
+    main.querySelectorAll("img[src]").forEach((img) => {
+      const local = local_images_default[imageKey(img.getAttribute("src"))];
+      if (local) img.setAttribute("src", `./${local}`);
+    });
+  }
   var PAGE_TEMPLATE = {
     name: "home",
     description: "Ameriprise homepage: hero, spotlights, promo panels, ratings highlights, resource tabs, advisor locator and disclosures",
@@ -942,6 +973,7 @@ var CustomImportScript = (() => {
       WebImporter.rules.createMetadata(main, document2);
       WebImporter.rules.transformBackgroundImages(main, document2);
       WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
+      localizeImages(main);
       const rawPath = new URL(params.originalURL).pathname.replace(/\/$/, "").replace(/\.html?$/, "");
       const path = WebImporter.FileUtils.sanitizePath(rawPath === "" ? "/index" : rawPath);
       return [{

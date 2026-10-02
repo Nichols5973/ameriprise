@@ -130,6 +130,6 @@ export default function parse(element, { document }) {
 
   const cells = [[introCell.length ? introCell : '', searchCell.length ? searchCell : '']];
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'columns-advisor', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: 'Columns (advisor)', cells });
   element.replaceWith(block);
 }

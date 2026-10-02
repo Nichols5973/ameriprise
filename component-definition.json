@@ -212,7 +212,8 @@
                   "model": "columns-advisor",
                   "filter": "columns-advisor",
                   "columns": "2",
-                  "rows": "1"
+                  "rows": "1",
+                  "classes": "advisor"
                 }
               }
             }
@@ -230,7 +231,8 @@
                   "model": "columns-promo",
                   "filter": "columns-promo",
                   "columns": "2",
-                  "rows": "1"
+                  "rows": "1",
+                  "classes": "promo"
                 }
               }
             }
@@ -248,7 +250,8 @@
                   "model": "columns-spotlight",
                   "filter": "columns-spotlight",
                   "columns": "2",
-                  "rows": "1"
+                  "rows": "1",
+                  "classes": "spotlight"
                 }
               }
             }

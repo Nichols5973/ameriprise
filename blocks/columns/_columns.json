@@ -21,6 +21,36 @@
       "id": "columns",
       "fields": [
         {
+          "component": "multiselect",
+          "name": "classes",
+          "value": "",
+          "label": "Style",
+          "description": "Columns layout variant. Rendered as a block class (e.g. \"columns promo\").",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Spotlight (icon + text columns)",
+              "value": "spotlight"
+            },
+            {
+              "name": "Promo (rounded split panel)",
+              "value": "promo"
+            },
+            {
+              "name": "Advisor locator (dark band)",
+              "value": "advisor"
+            },
+            {
+              "name": "Promo panel: stone",
+              "value": "stone"
+            },
+            {
+              "name": "Promo panel: light purple",
+              "value": "purple-light"
+            }
+          ]
+        },
+        {
           "component": "text",
           "valueType": "number",
           "name": "columns",
