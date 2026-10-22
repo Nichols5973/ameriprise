@@ -3,15 +3,38 @@
  * All copy, links and images come from the fragment; this file only adds structure.
  */
 
+import { getMetadata } from '../../scripts/aem.js';
+
 /**
- * Fetches the footer fragment. Metadata-independent dual fetch:
- * /content/footer.plain.html (local preview) then /footer.plain.html (DA/EDS).
+ * Candidate footer locations, in order: `footer` metadata, /content/footer (local preview),
+ * then each ancestor folder of the page, e.g. /language-masters/en/footer,
+ * /language-masters/footer, /footer (published AEM sites keep footer under the language tree).
+ * @returns {string[]} paths without extension
+ */
+function footerCandidates() {
+  const meta = getMetadata('footer');
+  const paths = meta ? [new URL(meta, window.location).pathname.replace(/(\.plain)?\.html$/, '')] : [];
+  paths.push('/content/footer');
+  const segments = window.location.pathname.replace(/\.html$/, '').split('/').filter(Boolean);
+  for (let i = segments.length; i >= 0; i -= 1) {
+    paths.push(`/${[...segments.slice(0, i), 'footer'].join('/')}`);
+  }
+  return [...new Set(paths)];
+}
+
+/**
+ * Fetches the footer fragment from the first candidate location that responds.
  * @returns {Promise<HTMLElement|null>}
  */
 async function fetchFooterFragment() {
-  let resp = await fetch('/content/footer.plain.html');
-  if (!resp.ok) resp = await fetch('/footer.plain.html');
-  if (!resp.ok) return null;
+  let resp;
+  // eslint-disable-next-line no-restricted-syntax
+  for (const path of footerCandidates()) {
+    // eslint-disable-next-line no-await-in-loop
+    resp = await fetch(`${path}.plain.html`);
+    if (resp.ok) break;
+  }
+  if (!resp?.ok) return null;
   const container = document.createElement('div');
   container.innerHTML = await resp.text();
   // resolve relative image paths against the fragment location, not the page
